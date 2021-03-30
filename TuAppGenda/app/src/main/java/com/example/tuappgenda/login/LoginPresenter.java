@@ -1,5 +1,7 @@
 package com.example.tuappgenda.login;
 
+import com.example.tuappgenda.R;
+
 public class LoginPresenter implements ILoginPresenter {
 
     ILoginView view;
@@ -12,11 +14,17 @@ public class LoginPresenter implements ILoginPresenter {
         if(!user.isEmpty() && !pass.isEmpty()){
             view.showILoading();
             //TODO: hacer login
-        }else if(user.isEmpty()){
-            view.userError();
-
-        } else if(pass.isEmpty()){
-            view.passError();
+        }else {
+            if(user.isEmpty()){
+                view.userError(view.getString(R.string.userEmpty));
+            } else {
+                view.userError("");
+            }
+            if(pass.isEmpty()){
+                view.passError(view.getString(R.string.passEmpty));
+            }  else {
+                view.passError("");
+            }
         }
 
 

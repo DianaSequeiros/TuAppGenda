@@ -17,4 +17,8 @@
     <string name="BTaccess">Acceder</string>
     <string name="Copyright">Copyright Diana Sequeiros Fontán</string>
 
+
+    <string name="userEmpty">Campo usuario requerido</string>
+    <string name="passEmpty">Campo contraseña requerido</string>
+
 </resources>

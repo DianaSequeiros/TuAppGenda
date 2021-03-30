@@ -9,10 +9,10 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.tuappgenda.AccessActivity;
 import com.example.tuappgenda.R;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginFragment extends Fragment implements ILoginView{
 
@@ -20,6 +20,8 @@ public class LoginFragment extends Fragment implements ILoginView{
     private Button acceder;
     private EditText user;
     private EditText pass;
+    private TextInputLayout userLayout;
+    private TextInputLayout passLayout;
 
     @Override
     public View onCreateView(
@@ -36,6 +38,8 @@ public class LoginFragment extends Fragment implements ILoginView{
         acceder = view.findViewById(R.id.idAcceder);
         user = view.findViewById(R.id.idETuser);
         pass = view.findViewById(R.id.idETpass);
+        userLayout = view.findViewById(R.id.id_text_user_input);
+        passLayout = view.findViewById(R.id.id_text_pass_input);
 
         acceder.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,13 +50,13 @@ public class LoginFragment extends Fragment implements ILoginView{
     }
 
     @Override
-    public void userError() {
-        //TODO: hacer textfield error
-
+    public void userError(String message) {
+        userLayout.setError(message);
     }
+
     @Override
-    public void passError() {
-        //TODO: hacer textfield error
+    public void passError(String message) {
+        passLayout.setError(message);
 
     }
 
