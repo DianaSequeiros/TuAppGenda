@@ -15,5 +15,6 @@
     <string name="User">Usuario</string>
     <string name="Pass">Contraseña</string>
     <string name="BTaccess">Acceder</string>
+    <string name="Copyright">Copyright Diana Sequeiros Fontán</string>
 
 </resources>
