@@ -1,4 +1,4 @@
-package com.example.tuappgenda.login;
+package com.example.tuappgenda.screens.login;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

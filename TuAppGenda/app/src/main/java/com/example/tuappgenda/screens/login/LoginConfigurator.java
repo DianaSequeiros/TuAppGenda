@@ -1,4 +1,4 @@
-package com.example.tuappgenda.login;
+package com.example.tuappgenda.screens.login;
 
 public class LoginConfigurator {
 
