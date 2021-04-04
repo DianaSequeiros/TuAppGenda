@@ -8,5 +8,6 @@ public interface ILoginView {
     void passError(String message);
     void showILoading();
     void hideILoading();
+    void showAlert(String message);
     String getString(@StringRes int resId);
 }

@@ -1,5 +1,7 @@
 package com.example.tuappgenda.screens.login;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,7 +59,6 @@ public class LoginFragment extends Fragment implements ILoginView{
     @Override
     public void passError(String message) {
         passLayout.setError(message);
-
     }
 
     @Override
@@ -68,6 +69,19 @@ public class LoginFragment extends Fragment implements ILoginView{
     @Override
     public void hideILoading() {
         ((AccessActivity) getActivity()).hideLoading();
+    }
+
+    @Override
+    public void showAlert(String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setMessage(message)
+                .setPositiveButton(R.string.OK, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        
+                    }
+                });
+        builder.create();
+        builder.show();
     }
 
     public void setPresenter(ILoginPresenter presenter) {

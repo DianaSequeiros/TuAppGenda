@@ -20,5 +20,6 @@
 
     <string name="userEmpty">Campo usuario requerido</string>
     <string name="passEmpty">Campo contraseña requerido</string>
+    <string name="OK">OK</string>
 
 </resources>
