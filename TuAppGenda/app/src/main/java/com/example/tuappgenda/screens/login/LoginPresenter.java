@@ -9,10 +9,12 @@ public class LoginPresenter implements ILoginPresenter {
 
     ILoginView view;
     LoginRepository repository;
+    ILoginRouter loginRouter;
 
-    public LoginPresenter(ILoginView view, LoginRepository repository) {
+    public LoginPresenter(ILoginView view, LoginRepository repository, ILoginRouter loginRouter) {
         this.view = view;
         this.repository = repository;
+        this.loginRouter = loginRouter;
     }
 
     public void loginTap(String user, String pass){
@@ -22,7 +24,7 @@ public class LoginPresenter implements ILoginPresenter {
                 @Override
                 public void onSuccess(Boolean value) {
                     view.hideILoading();
-                    //TODO: pasar a la siguiente vista
+                    loginRouter.navigateToHome();
                 }
 
                 @Override

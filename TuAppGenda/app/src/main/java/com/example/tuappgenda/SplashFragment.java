@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.example.tuappgenda.screens.login.LoginFragment;
+
 public class SplashFragment extends Fragment {
 
     @Override
@@ -26,8 +28,8 @@ public class SplashFragment extends Fragment {
         view.findViewById(R.id.button_first).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(SplashFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
+
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, new LoginFragment()).commit();
             }
         });
     }

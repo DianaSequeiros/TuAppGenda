@@ -22,5 +22,6 @@
     <string name="passEmpty">Campo contraseña requerido</string>
     <string name="OK">OK</string>
     <string name="ErrorLogin">Ha habido un error en la autenticación</string>
+    <string name="title_activity_home">HomeActivity</string>
 
 </resources>
