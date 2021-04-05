@@ -22,17 +22,13 @@ public class LoginPresenter implements ILoginPresenter {
                 @Override
                 public void onSuccess(Boolean value) {
                     view.hideILoading();
-                    if(value){
-                        //TODO: pasar a la siguiente vista
-                    }else{
-
-                    }
+                    //TODO: pasar a la siguiente vista
                 }
 
                 @Override
                 public void onFailure(ErrorType error) {
                     view.hideILoading();
-
+                    view.showAlert(view.getString(R.string.ErrorLogin));
                 }
             });
         }else {
