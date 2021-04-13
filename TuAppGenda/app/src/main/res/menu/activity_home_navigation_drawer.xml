@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/idInicioMenu"
+            android:icon="@drawable/home"
+            android:title="@string/inicio" />
+
+        <item
+            android:id="@+id/idPerfil"
+            android:icon="@drawable/profile"
+            android:title="@string/perfil" />
+
+        <item
+            android:id="@+id/idAsig"
+            android:icon="@drawable/subject"
+            android:title="@string/asignaturas" />
+
+        <item
+            android:id="@+id/idProf"
+            android:icon="@drawable/teachers"
+            android:title="@string/profesores" />
+
+        <item
+            android:id="@+id/idCentro"
+            android:icon="@drawable/school"
+            android:title="@string/centro" />
+
+        <item
+            android:id="@+id/idGitHub"
+            android:icon="@drawable/github"
+            android:title="@string/gitHub" />
+
+        <item
+            android:id="@+id/idLogout"
+            android:icon="@drawable/logout"
+            android:title="@string/cerrarSesion" />
+
+    </group>
+</menu>
