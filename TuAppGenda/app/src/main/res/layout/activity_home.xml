@@ -21,6 +21,13 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/Theme.TuAppGenda.PopupOverlay"/>
 
+        <FrameLayout
+            android:id="@+id/idHome_FrameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </FrameLayout>
+
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
