@@ -25,13 +25,18 @@
     <string name="title_activity_home">HomeActivity</string>
 
 
-    <string name="inicio">Inicio</string>
-    <string name="perfil">Perfil</string>
-    <string name="asignaturas">Asignaturas</string>
-    <string name="profesores">Profesores</string>
-    <string name="centro">Centro</string>
+    <string name="start">Inicio</string>
+    <string name="profile">Perfil</string>
+    <string name="subjects">Asignaturas</string>
+    <string name="teachers">Profesores</string>
+    <string name="school">Centro</string>
     <string name="gitHub">GitHub</string>
-    <string name="cerrarSesion">Cerrar Sesión</string>
+    <string name="logout">Cerrar Sesión</string>
+
+
+    <string name="hello">Hola</string>
+    <string name="whatsUp">¿Cómo llevas las clases?</string>
+    <string name="plataform">Esta es la plataforma que te ayuda a recordar tus clases</string>
 
 
 </resources>

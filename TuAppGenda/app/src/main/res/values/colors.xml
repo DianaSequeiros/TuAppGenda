@@ -15,5 +15,7 @@
     <color name="gray_transparent">#99ffffff</color>
     <color name="warm_grey">#a2a2a2</color>
     <color name="navigationDrawer_background">#1C232F</color>
+    <color name="blue_top">#6C94CE</color>
+    <color name="blue_bottom">#06090E</color>
 
 </resources>
