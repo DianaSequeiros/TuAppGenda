@@ -8,28 +8,38 @@
     android:fitsSystemWindows="true"
     android:background="@color/navigationDrawer_background">
 
-    <TextView
-        android:id="@+id/header_title"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/idLogoHeader"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:drawablePadding="12dp"
-        android:gravity="center_vertical"
-        android:text="@string/app_name"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium.Inverse"
-        app:drawableStartCompat="@mipmap/ic_launcher"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:paddingTop="6dp"
+        android:paddingLeft="16dp"
+        android:textAppearance="@style/white_title_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
 
     <TextView
+        android:id="@+id/idNameHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingTop="6dp"
+        android:text=""
+        android:textAppearance="@style/light_white_subtitle_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idLogoHeader" />
+
+    <TextView
+        android:id="@+id/idCourseHeader"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:text="copyright"
+        android:paddingLeft="16dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:text="o"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Small.Inverse"
-        app:layout_constraintEnd_toEndOf="@+id/header_title"
-        app:layout_constraintStart_toStartOf="@+id/header_title"
-        app:layout_constraintTop_toBottomOf="@+id/header_title" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idNameHeader" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
