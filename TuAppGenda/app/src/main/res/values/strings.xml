@@ -24,4 +24,14 @@
     <string name="ErrorLogin">Ha habido un error en la autenticación</string>
     <string name="title_activity_home">HomeActivity</string>
 
+
+    <string name="inicio">Inicio</string>
+    <string name="perfil">Perfil</string>
+    <string name="asignaturas">Asignaturas</string>
+    <string name="profesores">Profesores</string>
+    <string name="centro">Centro</string>
+    <string name="gitHub">GitHub</string>
+    <string name="cerrarSesion">Cerrar Sesión</string>
+
+
 </resources>

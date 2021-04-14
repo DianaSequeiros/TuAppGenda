@@ -31,4 +31,24 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="item_menu">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/ubuntu_light</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="white_title_menu">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="light_white_subtitle_menu">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+
+
 </resources>
