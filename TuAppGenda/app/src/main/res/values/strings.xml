@@ -37,6 +37,7 @@
     <string name="hello">Hola</string>
     <string name="whatsUp">¿Cómo llevas las clases?</string>
     <string name="plataform">Esta es la plataforma que te ayuda a recordar tus clases</string>
+    <string name="show">Mostrar</string>
 
 
 </resources>
