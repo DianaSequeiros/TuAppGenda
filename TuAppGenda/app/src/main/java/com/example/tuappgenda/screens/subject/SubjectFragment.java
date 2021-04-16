@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.example.tuappgenda.AccessActivity;
 import com.example.tuappgenda.R;
@@ -20,11 +21,13 @@ import java.util.ArrayList;
 public class SubjectFragment extends Fragment implements ISubjectView {
 
     private ISubjectPresenter presenter;
+    private ListView listSubject;
 
     @Override
     public void onResume() {
         super.onResume();
         presenter.getSubjects();
+        listSubject = getView().findViewById(R.id.idListSubjects);
     }
 
     @Override
@@ -51,8 +54,8 @@ public class SubjectFragment extends Fragment implements ISubjectView {
 
     @Override
     public void showSubjects(ArrayList<Subject> subjectList) {
-
-
+        AdapterSubject adapterSubject = new AdapterSubject(this.getContext(), R.layout.layout_subject, subjectList);
+        listSubject.setAdapter(adapterSubject);
     }
 
     @Override
