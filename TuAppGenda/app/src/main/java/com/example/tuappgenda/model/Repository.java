@@ -1,11 +1,12 @@
 package com.example.tuappgenda.model;
 
 import com.example.tuappgenda.model.entities.Subject;
+import com.example.tuappgenda.model.entities.Teacher;
 import com.example.tuappgenda.model.network.INetwork;
 
 import java.util.ArrayList;
 
-public class Repository implements LoginRepository, SubjectRepository{
+public class Repository implements LoginRepository, SubjectRepository, TeacherRepository{
 
     private INetwork network;
     private static int idSesion;
@@ -40,5 +41,10 @@ public class Repository implements LoginRepository, SubjectRepository{
     @Override
     public void getSubjects(Callback<ArrayList<Subject>> callback) {
         network.getSubjects(idSesion, callback);
+    }
+
+    @Override
+    public void getTeachers(Callback<ArrayList<Teacher>> callback) {
+        network.getTeachers(idSesion, callback);
     }
 }

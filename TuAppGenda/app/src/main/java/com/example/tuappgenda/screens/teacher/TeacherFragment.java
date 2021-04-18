@@ -1,5 +1,7 @@
 package com.example.tuappgenda.screens.teacher;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,54 +9,32 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.example.tuappgenda.R;
+import com.example.tuappgenda.model.entities.Teacher;
+import com.example.tuappgenda.screens.home.HomeActivity;
+import com.example.tuappgenda.screens.subject.AdapterSubject;
+import com.example.tuappgenda.screens.subject.ISubjectPresenter;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link TeacherFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class TeacherFragment extends Fragment {
+import java.util.ArrayList;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class TeacherFragment extends Fragment implements ITeacherView{
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private ITeacherPresenter presenter;
+    private ListView listTeachers;
 
-    public TeacherFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment TeacherFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static TeacherFragment newInstance(String param1, String param2) {
-        TeacherFragment fragment = new TeacherFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    @Override
+    public void onResume() {
+        super.onResume();
+        presenter.getTeachers();
+        listTeachers = getView().findViewById(R.id.idListTeachers);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        TeacherConfigurator.configure(this);
     }
 
     @Override
@@ -62,5 +42,38 @@ public class TeacherFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_teacher, container, false);
+    }
+
+    @Override
+    public void showILoading() {
+        ((HomeActivity) getActivity()).showLoading();
+    }
+
+    @Override
+    public void hideILoading() {
+        ((HomeActivity) getActivity()).hideLoading();
+    }
+
+    @Override
+    public void showTeachers(ArrayList<Teacher> teacherList) {
+        AdapterTeacher adapterTeacher = new AdapterTeacher(this.getContext(), R.layout.layout_teacher, teacherList);
+        listTeachers.setAdapter(adapterTeacher);
+    }
+
+    @Override
+    public void showAlert(String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setMessage(message)
+                .setPositiveButton(R.string.OK, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                });
+        builder.create();
+        builder.show();
+    }
+
+    public void setPresenter(ITeacherPresenter presenter){
+        this.presenter = presenter;
     }
 }

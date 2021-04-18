@@ -34,6 +34,5 @@ public class SubjectPresenter implements ISubjectPresenter {
                 view.showAlert(view.getString(R.string.ErrorLogin));
             }
         });
-
     }
 }

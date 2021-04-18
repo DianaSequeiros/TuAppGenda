@@ -1,14 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.teacher.TeacherFragment">
+    android:background="@drawable/app_background"
+    tools:context=".screens.teacher.TeacherFragment" >
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="teacher fragment" />
+        android:id="@+id/idTVNameTeacher"
+        style="@style/white_title_lists"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/TVNameTeacher"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/idTVSurnameTeacher"
+        style="@style/white_title_lists"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="@string/TVSurnameTeacher"
+        app:layout_constraintStart_toEndOf="@+id/idTVNameTeacher"
+        app:layout_constraintTop_toTopOf="@+id/idTVNameTeacher" />
+
+    <TextView
+        android:id="@+id/idTVemailTeacher"
+        style="@style/white_title_lists"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:text="@string/TVEmailTeacher"
+        app:layout_constraintEnd_toStartOf="@+id/idTVcourseTeacher"
+        app:layout_constraintStart_toEndOf="@+id/idTVSurnameTeacher"
+        app:layout_constraintTop_toTopOf="@+id/idTVSurnameTeacher" />
+
+    <TextView
+        android:id="@+id/idTVcourseTeacher"
+        style="@style/white_title_lists"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="@string/TVCourseTeacher"
+        app:layout_constraintEnd_toStartOf="@+id/idTVYearTeacher"
+        app:layout_constraintTop_toTopOf="@+id/idTVYearTeacher" />
+
+    <TextView
+        android:id="@+id/idTVYearTeacher"
+        style="@style/white_title_lists"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="15dp"
+        android:text="@string/TVYearTeacher"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/idListTeachers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idTVNameTeacher" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
