@@ -52,6 +52,13 @@ public class LoginFragment extends Fragment implements ILoginView{
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        user.setText("");
+        pass.setText("");
+    }
+
+    @Override
     public void userError(String message) {
         userLayout.setError(message);
     }

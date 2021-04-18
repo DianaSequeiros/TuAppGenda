@@ -2,24 +2,34 @@ package com.example.tuappgenda.screens.home;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
 
+import com.example.tuappgenda.AccessActivity;
 import com.example.tuappgenda.R;
+import com.example.tuappgenda.screens.login.LoginFragment;
 import com.example.tuappgenda.screens.profile.ProfileFragment;
 import com.example.tuappgenda.screens.school.SchoolFragment;
 import com.example.tuappgenda.screens.start.StartFragment;
 import com.example.tuappgenda.screens.subject.SubjectFragment;
 import com.example.tuappgenda.screens.teacher.TeacherFragment;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.ConcurrentModificationException;
 
 public class HomeActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
@@ -67,12 +77,28 @@ public class HomeActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.idHome_FrameLayout, new SchoolFragment()).commit();
                         break;
                     case R.id.idGitHub:
-                        //TODO:
+                        String url = "https://github.com/DianaSequeiros/TuAppGenda";
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                        startActivity(browserIntent);
                         break;
                     case R.id.idLogout:
-                        //TODO:
-                        break;
-                }
+                        AlertDialog.Builder builder=new AlertDialog.Builder(HomeActivity.this);
+                        builder.setMessage(R.string.logoutAlert);
+                        builder.setPositiveButton(R.string.OK, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                finish();
+                            }
+                        });
+                        builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                        AlertDialog alert = builder.create();
+                        alert.show();
+                    }
                 if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
                     drawerLayout.closeDrawer(GravityCompat.START);
                 }
