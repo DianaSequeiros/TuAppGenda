@@ -44,5 +44,11 @@
     <string name="TVCourseSubject">Curso</string>
     <string name="TVYearSubject">Año</string>
 
+    <string name="TVNameTeacher">Nombre</string>
+    <string name="TVSurnameTeacher">Apellidos</string>
+    <string name="TVEmailTeacher">Email</string>
+    <string name="TVCourseTeacher">Curso</string>
+    <string name="TVYearTeacher">Año</string>
+
 
 </resources>

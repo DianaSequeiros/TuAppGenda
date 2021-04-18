@@ -10,6 +10,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.tuappgenda.model.Callback;
 import com.example.tuappgenda.model.ErrorType;
 import com.example.tuappgenda.model.entities.Subject;
+import com.example.tuappgenda.model.entities.Teacher;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -90,6 +91,33 @@ public class Network implements INetwork {
             }
         });
 
+        downloader.execute(jsonArrayRequest);
+    }
+
+    @Override
+    public void getTeachers(int idSession, Callback<ArrayList<Teacher>> callback) {
+        String url = "https://private-f775a-dianasequeiros.apiary-mock.com/teacher";
+
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        Log.v("response", response.toString());
+                        Gson gson = new GsonBuilder().create();
+                        try {
+                            ArrayList<Teacher> teacherList = gson.fromJson(response.toString(), new TypeToken<List<Teacher>>(){}.getType());
+                            callback.onSuccess(teacherList);
+                        } catch (Exception e) {
+                            callback.onFailure(ErrorType.BAD_JSON);
+                        }
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("error", error.toString());
+                        callback.onFailure(ErrorType.OTHER);
+                    }
+                });
         downloader.execute(jsonArrayRequest);
     }
 }
