@@ -1,6 +1,7 @@
 package com.example.tuappgenda.screens.home;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -56,6 +57,8 @@ public class HomeActivity extends AppCompatActivity {
                 .replace(R.id.idHome_FrameLayout, new StartFragment())
                 .commit();
 
+        changeTitle(R.string.start);
+
         NavigationView navigationView = findViewById(R.id.idNavigation_view);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -63,18 +66,23 @@ public class HomeActivity extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.idStart:
                         getSupportFragmentManager().beginTransaction().replace(R.id.idHome_FrameLayout, new StartFragment()).commit();
+                        changeTitle(R.string.start);
                         break;
                     case R.id.idProfile:
                         getSupportFragmentManager().beginTransaction().replace(R.id.idHome_FrameLayout, new ProfileFragment()).commit();
+                        changeTitle(R.string.profile);
                         break;
                     case R.id.idSubject:
                         getSupportFragmentManager().beginTransaction().replace(R.id.idHome_FrameLayout, new SubjectFragment()).commit();
+                        changeTitle(R.string.subjects);
                         break;
                     case R.id.idTeacher:
                         getSupportFragmentManager().beginTransaction().replace(R.id.idHome_FrameLayout, new TeacherFragment()).commit();
+                        changeTitle(R.string.teachers);
                         break;
                     case R.id.idSchool:
                         getSupportFragmentManager().beginTransaction().replace(R.id.idHome_FrameLayout, new SchoolFragment()).commit();
+                        changeTitle(R.string.school);
                         break;
                     case R.id.idGitHub:
                         String url = "https://github.com/DianaSequeiros/TuAppGenda";
@@ -123,6 +131,13 @@ public class HomeActivity extends AppCompatActivity {
     public void hideLoading(){
         progressBar.setVisibility(View.GONE);
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+    }
+
+    public void changeTitle(int id){
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null){
+            actionBar.setTitle(id);
+        }
     }
 
 }
