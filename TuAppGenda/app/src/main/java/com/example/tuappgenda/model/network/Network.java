@@ -9,6 +9,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.tuappgenda.model.Callback;
 import com.example.tuappgenda.model.ErrorType;
+import com.example.tuappgenda.model.entities.Profile;
 import com.example.tuappgenda.model.entities.Subject;
 import com.example.tuappgenda.model.entities.Teacher;
 import com.google.gson.Gson;
@@ -33,7 +34,7 @@ public class Network implements INetwork {
 
 
     @Override
-    public void login(String user, String pass, Callback<Integer> callback) {
+    public void login(String user, String pass, Callback<Profile> callback) {
         String url = "https://private-f775a-dianasequeiros.apiary-mock.com/login";
         // String url = "192.168.0.14:8080/login";
         Map<String, String> params = new HashMap<>();
@@ -48,9 +49,11 @@ public class Network implements INetwork {
                     @Override
                     public void onResponse(JSONObject response) {
                         Log.v("response", response.toString());
+                        Gson gson = new GsonBuilder().create();
                         try {
-                            callback.onSuccess(response.getInt("id"));
-                        } catch (JSONException e) {
+                            Profile profile = gson.fromJson(response.toString(), Profile.class);
+                            callback.onSuccess(profile);
+                        } catch (Exception e) {
                             callback.onFailure(ErrorType.BAD_JSON);
                         }
                     }

@@ -48,11 +48,12 @@
     <string name="TVYearSubject">Año</string>
 
     //Teacher Fragment
-    <string name="TVNameTeacher">Nombre</string>
-    <string name="TVSurnameTeacher">Apellidos</string>
-    <string name="TVEmailTeacher">Email</string>
-    <string name="TVCourseTeacher">Curso</string>
-    <string name="TVYearTeacher">Año</string>
+    <string name="TVName">Nombre</string>
+    <string name="TVSurname">Apellidos</string>
+    <string name="TVEmail">Email</string>
+    <string name="TVCourse">Curso</string>
+    <string name="TVYear">Año</string>
+    <string name="TVDNI">Dni</string>
 
     //Logout
     <string name="logoutAlert">¿Está seguro de que desea cerrar sesión?</string>
@@ -63,5 +64,10 @@
     <string name="center_direction">C/ Pedro Salinas, 11 28043 Madrid</string>
     <string name="center_phone">Tel. 91 538 38 38</string>
     <string name="center_mail">infoformacion@camaramadrid.es</string>
+
+    //Profile
+    <string name="info_profile">Información del perfil</string>
+    <string name="edit_profile">Editar perfil</string>
+    <string name="save_profile">Guardar perfil</string>
 
 </resources>

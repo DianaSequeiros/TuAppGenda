@@ -24,13 +24,6 @@ public class SubjectFragment extends Fragment implements ISubjectView {
     private ListView listSubject;
 
     @Override
-    public void onResume() {
-        super.onResume();
-        presenter.getSubjects();
-        listSubject = getView().findViewById(R.id.idListSubjects);
-    }
-
-    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SubjectConfigurator.configure(this);
@@ -40,6 +33,13 @@ public class SubjectFragment extends Fragment implements ISubjectView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_subject, container, false);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        presenter.getSubjects();
+        listSubject = getView().findViewById(R.id.idListSubjects);
     }
 
     @Override

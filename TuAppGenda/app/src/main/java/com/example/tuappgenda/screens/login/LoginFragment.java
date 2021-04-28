@@ -37,7 +37,7 @@ public class LoginFragment extends Fragment implements ILoginView{
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        acceder = view.findViewById(R.id.idAcceder);
+        acceder = view.findViewById(R.id.idButtonLogin);
         user = view.findViewById(R.id.idETuser);
         pass = view.findViewById(R.id.idETpass);
         userLayout = view.findViewById(R.id.id_text_user_input);
