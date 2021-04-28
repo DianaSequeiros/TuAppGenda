@@ -1,6 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.profile.ProfileFragment"/>
+    android:background="@drawable/app_background"
+    tools:context=".screens.profile.ProfileFragment" >
+
+
+    <TextView
+        android:id="@+id/idInfoProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="16dp"
+        android:inputType="none"
+        android:text="@string/info_profile"
+        android:textAppearance="@style/white_start"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/idTVnameProfile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textAppearance="@style/light_white__start"
+        android:textSize="14sp"
+        android:text="@string/TVName"
+        app:layout_constraintEnd_toEndOf="@+id/idNameProfile"
+        app:layout_constraintStart_toStartOf="@+id/idNameProfile"
+        app:layout_constraintTop_toBottomOf="@+id/idInfoProfile" />
+
+    <EditText
+        style="@style/editText"
+        android:id="@+id/idNameProfile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:ems="10"
+        android:hint="@string/TVName"
+        android:focusable="false"
+        android:clickable="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idTVnameProfile" />
+
+    <TextView
+        android:id="@+id/idTVSurnameProfile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/TVSurname"
+        android:textAppearance="@style/light_white__start"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/idSurnameProfile"
+        app:layout_constraintStart_toStartOf="@+id/idSurnameProfile"
+        app:layout_constraintTop_toBottomOf="@+id/idNameProfile" />
+
+    <EditText
+        style="@style/editText"
+        android:id="@+id/idSurnameProfile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/TVSurname"
+        android:focusable="false"
+        android:clickable="false"
+        app:layout_constraintEnd_toEndOf="@+id/idNameProfile"
+        app:layout_constraintStart_toStartOf="@+id/idNameProfile"
+        app:layout_constraintTop_toBottomOf="@+id/idTVSurnameProfile" />
+
+    <TextView
+        android:id="@+id/idTVEmailProfile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textAppearance="@style/light_white__start"
+        android:textSize="14sp"
+        android:text="@string/TVEmail"
+        app:layout_constraintEnd_toEndOf="@+id/idEmailProfile"
+        app:layout_constraintStart_toStartOf="@+id/idEmailProfile"
+        app:layout_constraintTop_toBottomOf="@+id/idSurnameProfile" />
+
+    <EditText
+        style="@style/editText"
+        android:id="@+id/idEmailProfile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/TVEmail"
+        android:focusable="false"
+        android:clickable="false"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/idSurnameProfile"
+        app:layout_constraintStart_toStartOf="@+id/idSurnameProfile"
+        app:layout_constraintTop_toBottomOf="@+id/idTVEmailProfile" />
+
+    <TextView
+        android:id="@+id/idTVCourseProfile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textAppearance="@style/light_white__start"
+        android:textSize="14sp"
+        android:text="@string/TVCourse"
+        app:layout_constraintEnd_toEndOf="@+id/idCourseProfile"
+        app:layout_constraintStart_toStartOf="@+id/idCourseProfile"
+        app:layout_constraintTop_toBottomOf="@+id/idEmailProfile" />
+
+    <EditText
+        style="@style/editText"
+        android:id="@+id/idCourseProfile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/TVCourse"
+        android:focusable="false"
+        android:clickable="false"
+        app:layout_constraintEnd_toEndOf="@+id/idEmailProfile"
+        app:layout_constraintStart_toStartOf="@+id/idEmailProfile"
+        app:layout_constraintTop_toBottomOf="@+id/idTVCourseProfile" />
+
+    <TextView
+        android:id="@+id/idTVYearProfile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textAppearance="@style/light_white__start"
+        android:textSize="14sp"
+        android:text="@string/TVYear"
+        app:layout_constraintEnd_toEndOf="@+id/idYearProfile"
+        app:layout_constraintStart_toStartOf="@+id/idYearProfile"
+        app:layout_constraintTop_toBottomOf="@+id/idCourseProfile" />
+
+    <EditText
+        style="@style/editText"
+        android:id="@+id/idYearProfile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/TVYear"
+        android:focusable="false"
+        android:clickable="false"
+        app:layout_constraintEnd_toEndOf="@+id/idCourseProfile"
+        app:layout_constraintStart_toStartOf="@+id/idCourseProfile"
+        app:layout_constraintTop_toBottomOf="@+id/idTVYearProfile" />
+
+    <TextView
+        android:id="@+id/idTVDniProfile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textAppearance="@style/light_white__start"
+        android:textSize="14sp"
+        android:text="@string/TVDNI"
+        app:layout_constraintEnd_toEndOf="@+id/idDniProfile"
+        app:layout_constraintStart_toStartOf="@+id/idDniProfile"
+        app:layout_constraintTop_toBottomOf="@+id/idYearProfile" />
+
+    <EditText
+        style="@style/editText"
+        android:id="@+id/idDniProfile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/TVDNI"
+        android:focusable="false"
+        android:clickable="false"
+        app:layout_constraintEnd_toEndOf="@+id/idYearProfile"
+        app:layout_constraintStart_toStartOf="@+id/idYearProfile"
+        app:layout_constraintTop_toBottomOf="@+id/idTVDniProfile" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/idAcceder"
+        style="@style/BT_gradient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="43dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/edit_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idDniProfile" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
