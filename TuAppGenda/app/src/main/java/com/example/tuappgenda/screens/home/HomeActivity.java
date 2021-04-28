@@ -9,20 +9,18 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
-import com.example.tuappgenda.AccessActivity;
 import com.example.tuappgenda.R;
-import com.example.tuappgenda.screens.login.LoginFragment;
+import com.example.tuappgenda.model.entities.Profile;
 import com.example.tuappgenda.screens.profile.ProfileFragment;
 import com.example.tuappgenda.screens.school.SchoolFragment;
 import com.example.tuappgenda.screens.start.StartFragment;
@@ -30,11 +28,13 @@ import com.example.tuappgenda.screens.subject.SubjectFragment;
 import com.example.tuappgenda.screens.teacher.TeacherFragment;
 import com.google.android.material.navigation.NavigationView;
 
-import java.util.ConcurrentModificationException;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements IHomeView {
     private DrawerLayout drawerLayout;
     private ProgressBar progressBar;
+    private TextView idNameHeader;
+    private TextView idCourseHeader;
+    private IHomePresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +51,8 @@ public class HomeActivity extends AppCompatActivity {
                 this, drawerLayout, toolbar, 0, 0);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        HomeConfigurator.configure(this);
 
         getSupportFragmentManager()
                 .beginTransaction()
@@ -113,6 +115,16 @@ public class HomeActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        View header=navigationView.getHeaderView(0);
+        idNameHeader = header.findViewById(R.id.idNameHeader);
+        idCourseHeader = header.findViewById(R.id.idCourseHeader);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        presenter.getProfile();
     }
 
     @Override
@@ -140,4 +152,13 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void showProfile(Profile profile) {
+        idNameHeader.setText(profile.getName()+" "+profile.getSurname());
+        idCourseHeader.setText(profile.getCourse());
+    }
+
+    public void setPresenter(IHomePresenter presenter) {
+        this.presenter = presenter;
+    }
 }
