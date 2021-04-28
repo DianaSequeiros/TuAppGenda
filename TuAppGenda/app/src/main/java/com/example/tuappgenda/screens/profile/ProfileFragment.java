@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.tuappgenda.R;
+import com.example.tuappgenda.model.Callback;
 import com.example.tuappgenda.model.entities.Profile;
 
 public class ProfileFragment extends Fragment implements IProfileView {
@@ -67,8 +68,12 @@ public class ProfileFragment extends Fragment implements IProfileView {
 
     @Override
     public void showProfile(Profile profile) {
-        //TODO: hacer vista
-
+        nameProfile.setText(profile.getName());
+        surnameProfile.setText(profile.getSurname());
+        emailProfile.setText(profile.getEmail());
+        courseProfile.setText(profile.getCourse());
+        yearProfile.setText(profile.getYear());
+        dniProfile.setText(profile.getDni());
     }
 
     @Override
