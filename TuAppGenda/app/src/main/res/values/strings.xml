@@ -68,5 +68,6 @@
     //Profile
     <string name="info_profile">Información del perfil</string>
     <string name="edit_profile">Editar perfil</string>
+    <string name="save_profile">Guardar perfil</string>
 
 </resources>

@@ -1,5 +1,6 @@
 package com.example.tuappgenda.screens.profile;
 
+import com.example.tuappgenda.R;
 import com.example.tuappgenda.model.Callback;
 import com.example.tuappgenda.model.ErrorType;
 import com.example.tuappgenda.model.ProfileRepository;
@@ -28,5 +29,15 @@ public class ProfilePresenter implements IProfilePresenter{
 
             }
         });
+    }
+
+    @Override
+    public void tapButton(Boolean isEditable) {
+        if(isEditable){
+            view.changeView(!isEditable, R.string.edit_profile);
+        }else{
+            view.changeView(!isEditable, R.string.save_profile);
+        }
+
     }
 }

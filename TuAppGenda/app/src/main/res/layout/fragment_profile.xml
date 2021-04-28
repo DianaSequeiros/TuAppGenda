@@ -44,8 +44,6 @@
         android:layout_marginEnd="24dp"
         android:ems="10"
         android:hint="@string/TVName"
-        android:focusable="false"
-        android:clickable="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idTVnameProfile" />
@@ -70,8 +68,6 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="@string/TVSurname"
-        android:focusable="false"
-        android:clickable="false"
         app:layout_constraintEnd_toEndOf="@+id/idNameProfile"
         app:layout_constraintStart_toStartOf="@+id/idNameProfile"
         app:layout_constraintTop_toBottomOf="@+id/idTVSurnameProfile" />
@@ -95,8 +91,6 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/TVEmail"
-        android:focusable="false"
-        android:clickable="false"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="@+id/idSurnameProfile"
         app:layout_constraintStart_toStartOf="@+id/idSurnameProfile"
@@ -122,8 +116,6 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="@string/TVCourse"
-        android:focusable="false"
-        android:clickable="false"
         app:layout_constraintEnd_toEndOf="@+id/idEmailProfile"
         app:layout_constraintStart_toStartOf="@+id/idEmailProfile"
         app:layout_constraintTop_toBottomOf="@+id/idTVCourseProfile" />
@@ -148,8 +140,6 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="@string/TVYear"
-        android:focusable="false"
-        android:clickable="false"
         app:layout_constraintEnd_toEndOf="@+id/idCourseProfile"
         app:layout_constraintStart_toStartOf="@+id/idCourseProfile"
         app:layout_constraintTop_toBottomOf="@+id/idTVYearProfile" />
@@ -174,14 +164,12 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="@string/TVDNI"
-        android:focusable="false"
-        android:clickable="false"
         app:layout_constraintEnd_toEndOf="@+id/idYearProfile"
         app:layout_constraintStart_toStartOf="@+id/idYearProfile"
         app:layout_constraintTop_toBottomOf="@+id/idTVDniProfile" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/idAcceder"
+        android:id="@+id/idButtonProfile"
         style="@style/BT_gradient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
