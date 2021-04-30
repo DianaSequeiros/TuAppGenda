@@ -2,11 +2,13 @@ package com.example.tuappgenda.model.network;
 
 import android.util.Log;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.example.tuappgenda.model.Callback;
 import com.example.tuappgenda.model.ErrorType;
 import com.example.tuappgenda.model.entities.Profile;
@@ -29,6 +31,7 @@ public class Network implements INetwork {
     private NetworkDownloader downloader;
 
     final String url = "https://private-f775a-dianasequeiros.apiary-mock.com";
+    final String urlPro = "http://192.168.0.16:8080";
 
     public Network(NetworkDownloader downloader) {
         this.downloader = downloader;
@@ -37,23 +40,23 @@ public class Network implements INetwork {
 
     @Override
     public void login(String user, String pass, Callback<Profile> callback) {
-        String url = this.url+"/login";
-        // String url = "192.168.0.14:8080/login";
+        String url = this.urlPro+"/login";
+        // String url = "http://192.168.0.16:8080/login";
         Map<String, String> params = new HashMap<>();
         params.put("user", user);
         params.put("pass", pass);
 
         JSONObject body = new JSONObject(params);
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.POST, url, body, new Response.Listener<JSONObject>() {
+        StringRequest jsonObjectRequest = new StringRequest
+                (Request.Method.POST, url, new Response.Listener<String>() {
 
                     @Override
-                    public void onResponse(JSONObject response) {
-                        Log.v("response", response.toString());
+                    public void onResponse(String response) {
+                        Log.v("response", response);
                         Gson gson = new GsonBuilder().create();
                         try {
-                            Profile profile = gson.fromJson(response.toString(), Profile.class);
+                            Profile profile = gson.fromJson(response, Profile.class);
                             callback.onSuccess(profile);
                         } catch (Exception e) {
                             callback.onFailure(ErrorType.BAD_JSON);
@@ -66,7 +69,20 @@ public class Network implements INetwork {
                         Log.e("error", error.toString());
                         callback.onFailure(ErrorType.OTHER);
                     }
-                });
+                }){
+            @Override
+            public String getBodyContentType() {
+                return "application/x-www-form-urlencoded";
+            }
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("user", user);
+                params.put("pass", pass);
+                return params;
+            }
+        };
         downloader.execute(jsonObjectRequest);
     }
 
