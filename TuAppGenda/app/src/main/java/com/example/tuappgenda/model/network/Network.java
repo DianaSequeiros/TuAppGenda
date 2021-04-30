@@ -28,6 +28,8 @@ import java.util.Map;
 public class Network implements INetwork {
     private NetworkDownloader downloader;
 
+    final String url = "https://private-f775a-dianasequeiros.apiary-mock.com";
+
     public Network(NetworkDownloader downloader) {
         this.downloader = downloader;
     }
@@ -35,7 +37,7 @@ public class Network implements INetwork {
 
     @Override
     public void login(String user, String pass, Callback<Profile> callback) {
-        String url = "https://private-f775a-dianasequeiros.apiary-mock.com/login";
+        String url = this.url+"/login";
         // String url = "192.168.0.14:8080/login";
         Map<String, String> params = new HashMap<>();
         params.put("user", user);
@@ -70,7 +72,7 @@ public class Network implements INetwork {
 
     @Override
     public void getSubjects(int idSession, Callback<ArrayList<Subject>> callback) {
-        String url = "https://private-f775a-dianasequeiros.apiary-mock.com/subject";
+        String url = this.url+"/subject";
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
@@ -99,7 +101,7 @@ public class Network implements INetwork {
 
     @Override
     public void getTeachers(int idSession, Callback<ArrayList<Teacher>> callback) {
-        String url = "https://private-f775a-dianasequeiros.apiary-mock.com/teacher";
+        String url = this.url+"/teacher";
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
