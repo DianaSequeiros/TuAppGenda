@@ -5,7 +5,6 @@ import com.example.tuappgenda.model.TeacherRepository;
 import com.example.tuappgenda.model.network.INetwork;
 import com.example.tuappgenda.model.network.Network;
 import com.example.tuappgenda.model.network.NetworkDownloader;
-import com.example.tuappgenda.screens.subject.SubjectFragment;
 
 public class TeacherConfigurator {
 

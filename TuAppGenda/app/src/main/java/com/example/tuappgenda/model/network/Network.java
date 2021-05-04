@@ -6,8 +6,6 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.example.tuappgenda.model.Callback;
 import com.example.tuappgenda.model.ErrorType;
@@ -18,8 +16,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -41,12 +37,9 @@ public class Network implements INetwork {
     @Override
     public void login(String user, String pass, Callback<Profile> callback) {
         String url = this.urlPro+"/login";
-        // String url = "http://192.168.0.16:8080/login";
         Map<String, String> params = new HashMap<>();
         params.put("user", user);
         params.put("pass", pass);
-
-        JSONObject body = new JSONObject(params);
 
         StringRequest jsonObjectRequest = new StringRequest
                 (Request.Method.POST, url, new Response.Listener<String>() {
