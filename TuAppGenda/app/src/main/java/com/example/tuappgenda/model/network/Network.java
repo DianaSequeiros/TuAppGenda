@@ -122,16 +122,16 @@ public class Network implements INetwork {
 
     @Override
     public void getTeachers(int idSession, Callback<ArrayList<Teacher>> callback) {
-        String url = this.url+"/teacher";
+        String url = this.urlPro+"/teacher"+"?"+"id="+idSession;
 
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest
-                (Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
+        StringRequest jsonArrayRequest = new StringRequest
+                (Request.Method.GET, url, new Response.Listener<String>() {
                     @Override
-                    public void onResponse(JSONArray response) {
-                        Log.v("response", response.toString());
+                    public void onResponse(String response) {
+                        Log.v("response", response);
                         Gson gson = new GsonBuilder().create();
                         try {
-                            ArrayList<Teacher> teacherList = gson.fromJson(response.toString(), new TypeToken<List<Teacher>>(){}.getType());
+                            ArrayList<Teacher> teacherList = gson.fromJson(response, new TypeToken<List<Teacher>>(){}.getType());
                             callback.onSuccess(teacherList);
                         } catch (Exception e) {
                             callback.onFailure(ErrorType.BAD_JSON);
@@ -143,7 +143,12 @@ public class Network implements INetwork {
                         Log.e("error", error.toString());
                         callback.onFailure(ErrorType.OTHER);
                     }
-                });
+                }) {
+                    @Override
+                    public String getBodyContentType() {
+                return "application/x-www-form-urlencoded";
+            }
+        };
         downloader.execute(jsonArrayRequest);
     }
 
