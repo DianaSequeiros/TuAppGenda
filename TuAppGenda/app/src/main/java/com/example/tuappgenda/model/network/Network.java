@@ -146,4 +146,51 @@ public class Network implements INetwork {
                 });
         downloader.execute(jsonArrayRequest);
     }
+
+    @Override
+    public void editProfile(int idSession, Profile profileToEdit, Callback<Profile> callback) {
+        String url = this.urlPro+"/editProfile";
+
+        StringRequest jsonArrayRequest = new StringRequest
+                (Request.Method.POST, url, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.v("response", response);
+                        Gson gson = new GsonBuilder().create();
+                        try {
+                            Profile profile = gson.fromJson(response, Profile.class);
+                            callback.onSuccess(profile);
+                        } catch (Exception e) {
+                            callback.onFailure(ErrorType.BAD_JSON);
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("error", error.toString());
+                        callback.onFailure(ErrorType.OTHER);
+                    }
+                }) {
+            @Override
+            public String getBodyContentType() {
+                return "application/x-www-form-urlencoded";
+            }
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("id", ""+idSession);
+                params.put("name", profileToEdit.getName());
+                params.put("surname", profileToEdit.getSurname());
+                params.put("email", profileToEdit.getEmail());
+                params.put("dni", profileToEdit.getDni());
+                params.put("course", profileToEdit.getCourse());
+                params.put("year", profileToEdit.getYear());
+                return params;
+            }
+        };
+
+        downloader.execute(jsonArrayRequest);
+    }
 }

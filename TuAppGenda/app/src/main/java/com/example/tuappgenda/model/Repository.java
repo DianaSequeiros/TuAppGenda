@@ -53,4 +53,20 @@ public class Repository implements LoginRepository, SubjectRepository, TeacherRe
     public void getProfile(Callback<Profile> callback) {
         callback.onSuccess(profile);
     }
+
+    @Override
+    public void editProfile(Profile profileToEdit, Callback<Profile> callback) {
+        network.editProfile(idSesion, profileToEdit, new Callback<Profile>() {
+            @Override
+            public void onSuccess(Profile value) {
+                Repository.profile = value;
+                callback.onSuccess(value);
+            }
+
+            @Override
+            public void onFailure(ErrorType error) {
+                callback.onFailure(error);
+            }
+        });
+    }
 }

@@ -8,4 +8,8 @@ public interface IProfileView {
 
     void showProfile(Profile profile);
     void changeView(Boolean isClickable, @StringRes int resId);
+    void showILoading();
+    void hideILoading();
+    void showAlert(String message);
+    String getString(@StringRes int resId);
 }
