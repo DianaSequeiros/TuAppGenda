@@ -14,8 +14,6 @@ import android.widget.ListView;
 import com.example.tuappgenda.R;
 import com.example.tuappgenda.model.entities.Teacher;
 import com.example.tuappgenda.screens.home.HomeActivity;
-import com.example.tuappgenda.screens.subject.AdapterSubject;
-import com.example.tuappgenda.screens.subject.ISubjectPresenter;
 
 import java.util.ArrayList;
 

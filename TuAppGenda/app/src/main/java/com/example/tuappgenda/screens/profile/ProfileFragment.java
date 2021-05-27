@@ -1,5 +1,7 @@
 package com.example.tuappgenda.screens.profile;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -15,8 +17,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.tuappgenda.R;
-import com.example.tuappgenda.model.Callback;
 import com.example.tuappgenda.model.entities.Profile;
+import com.example.tuappgenda.screens.home.HomeActivity;
 
 public class ProfileFragment extends Fragment implements IProfileView {
 
@@ -55,7 +57,12 @@ public class ProfileFragment extends Fragment implements IProfileView {
         buttonProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.tapButton(nameProfile.isEnabled());
+                presenter.tapButton(nameProfile.isEnabled(), new Profile(nameProfile.getText().toString(),
+                        surnameProfile.getText().toString(),
+                        emailProfile.getText().toString(),
+                        courseProfile.getText().toString(),
+                        yearProfile.getText().toString(),
+                        dniProfile.getText().toString()));
             }
         });
     }
@@ -85,6 +92,29 @@ public class ProfileFragment extends Fragment implements IProfileView {
         changeEditText(yearProfile, mustClickable);
         changeEditText(dniProfile, mustClickable);
         buttonProfile.setText(resId);
+    }
+
+    @Override
+    public void showILoading() {
+        ((HomeActivity) getActivity()).showLoading();
+    }
+
+    @Override
+    public void hideILoading() {
+        ((HomeActivity) getActivity()).hideLoading();
+    }
+
+    @Override
+    public void showAlert(String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setMessage(message)
+                .setPositiveButton(R.string.OK, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                });
+        builder.create();
+        builder.show();
     }
 
 

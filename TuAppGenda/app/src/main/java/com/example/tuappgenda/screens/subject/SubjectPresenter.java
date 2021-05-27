@@ -31,7 +31,7 @@ public class SubjectPresenter implements ISubjectPresenter {
             @Override
             public void onFailure(ErrorType error) {
                 view.hideILoading();
-                view.showAlert(view.getString(R.string.ErrorLogin));
+                view.showAlert(view.getString(R.string.ErrorInfo));
             }
         });
     }

@@ -17,6 +17,7 @@ public class LoginPresenter implements ILoginPresenter {
         this.loginRouter = loginRouter;
     }
 
+    @Override
     public void loginTap(String user, String pass){
         if(!user.isEmpty() && !pass.isEmpty()){
             view.showILoading();
@@ -45,7 +46,5 @@ public class LoginPresenter implements ILoginPresenter {
                 view.passError("");
             }
         }
-
-
     }
 }

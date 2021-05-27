@@ -12,6 +12,11 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.tuappgenda.screens.login.LoginFragment;
 
+/**
+ * Splash Screen is the first screen visible to the user when the application’s launched. It will display an image
+ * before the login fragment.
+ */
+
 public class SplashFragment extends Fragment {
 
     @Override

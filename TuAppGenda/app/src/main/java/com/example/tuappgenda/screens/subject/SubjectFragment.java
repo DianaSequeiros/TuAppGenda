@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.example.tuappgenda.AccessActivity;
 import com.example.tuappgenda.R;
 import com.example.tuappgenda.model.entities.Subject;
 import com.example.tuappgenda.screens.home.HomeActivity;

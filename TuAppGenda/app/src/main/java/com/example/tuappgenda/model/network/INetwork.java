@@ -21,4 +21,6 @@ public interface INetwork {
 
     void getTeachers(int idSession, Callback<ArrayList<Teacher>> callback);
 
+    void editProfile(int idSession, Profile profileToEdit, Callback<Profile> callback);
+
 }

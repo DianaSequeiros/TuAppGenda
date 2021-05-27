@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 
 import com.example.tuappgenda.R;
-import com.example.tuappgenda.model.entities.Subject;
 import com.example.tuappgenda.model.entities.Teacher;
 
 import java.util.ArrayList;

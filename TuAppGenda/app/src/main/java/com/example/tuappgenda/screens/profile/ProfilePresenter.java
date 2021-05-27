@@ -32,9 +32,23 @@ public class ProfilePresenter implements IProfilePresenter{
     }
 
     @Override
-    public void tapButton(Boolean isEditable) {
+    public void tapButton(Boolean isEditable, Profile profile) {
         if(isEditable){
-            view.changeView(!isEditable, R.string.edit_profile);
+            view.showILoading();
+            profileRepository.editProfile(profile, new Callback<Profile>() {
+                @Override
+                public void onSuccess(Profile value) {
+                    view.hideILoading();
+                    view.changeView(!isEditable, R.string.edit_profile);
+                    view.showProfile(value);
+                }
+
+                @Override
+                public void onFailure(ErrorType error) {
+                    view.hideILoading();
+                    view.showAlert(view.getString(R.string.error_profile));
+                }
+            });
         }else{
             view.changeView(!isEditable, R.string.save_profile);
         }

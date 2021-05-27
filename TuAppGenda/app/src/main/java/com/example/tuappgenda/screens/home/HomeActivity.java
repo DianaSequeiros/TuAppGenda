@@ -119,6 +119,28 @@ public class HomeActivity extends AppCompatActivity implements IHomeView {
         View header=navigationView.getHeaderView(0);
         idNameHeader = header.findViewById(R.id.idNameHeader);
         idCourseHeader = header.findViewById(R.id.idCourseHeader);
+
+        drawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
+            @Override
+            public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
+                presenter.getProfile();
+            }
+
+            @Override
+            public void onDrawerOpened(@NonNull View drawerView) {
+                presenter.getProfile();
+            }
+
+            @Override
+            public void onDrawerClosed(@NonNull View drawerView) {
+                presenter.getProfile();
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+                presenter.getProfile();
+            }
+        });
     }
 
     @Override

@@ -6,4 +6,6 @@ public interface ProfileRepository {
 
     void getProfile(Callback<Profile> callback);
 
+    void editProfile(Profile profileToEdit, Callback<Profile> callback);
+
 }
