@@ -23,11 +23,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Network class to make HTTP requests.
+ */
+
 public class Network implements INetwork {
     private NetworkDownloader downloader;
 
-    final String url = "https://private-f775a-dianasequeiros.apiary-mock.com";
-    final String urlPro = "http://192.168.0.16:8080";
+    //final String urlPro = "https://private-f775a-dianasequeiros.apiary-mock.com";
+    //final String urlPro = "http://192.168.0.16:8080";
+    final String urlPro = "http://tfgdiana.sytes.net:8081";
 
     public Network(NetworkDownloader downloader) {
         this.downloader = downloader;
@@ -37,9 +42,6 @@ public class Network implements INetwork {
     @Override
     public void login(String user, String pass, Callback<Profile> callback) {
         String url = this.urlPro+"/login";
-        Map<String, String> params = new HashMap<>();
-        params.put("user", user);
-        params.put("pass", pass);
 
         StringRequest jsonObjectRequest = new StringRequest
                 (Request.Method.POST, url, new Response.Listener<String>() {

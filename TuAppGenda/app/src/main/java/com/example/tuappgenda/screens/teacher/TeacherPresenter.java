@@ -31,7 +31,7 @@ public class TeacherPresenter implements ITeacherPresenter {
             @Override
             public void onFailure(ErrorType error) {
                 view.hideILoading();
-                view.showAlert(view.getString(R.string.ErrorLogin));
+                view.showAlert(view.getString(R.string.ErrorInfo));
             }
         });
 

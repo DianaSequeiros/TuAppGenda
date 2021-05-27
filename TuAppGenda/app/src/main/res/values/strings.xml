@@ -71,4 +71,6 @@
     <string name="save_profile">Guardar perfil</string>
     <string name="error_profile">Ha habido un error al cargar el perfil</string>
 
+    <string name="ErrorInfo">Ha ocurrido un error inesperado al recuperar los datos.</string>
+
 </resources>

@@ -7,6 +7,11 @@ import com.example.tuappgenda.model.network.INetwork;
 
 import java.util.ArrayList;
 
+/**
+ * Class in charge of choosing, depending on the data to be obtained, between cache, local database or internet to collect the information.
+ *  In this case, all the information will be provided by the database.
+ */
+
 public class Repository implements LoginRepository, SubjectRepository, TeacherRepository, ProfileRepository{
 
     private INetwork network;
